@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mahmoud Ashraf Abo_Elnaga — Data Scientist</title>
+  <meta name="description" content="Portfolio of Mahmoud Ashraf Abo_Elnaga — Data Scientist" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --elev: #121823;
+      --text: #e6edf3;
+      --muted: #9fb0c0;
+      --brand: #3aa3ff;
+      --brand-2: #7c5cff;
+      --card: #0e141b;
+      --ok: #22c55e;
+      --warn: #fbbf24;
+      --danger: #ef4444;
+      --ring: rgba(58,163,255,0.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(124,92,255,0.15), transparent 60%),
+                  radial-gradient(900px 600px at -10% 10%, rgba(58,163,255,0.12), transparent 60%), var(--bg);
+      color: var(--text);
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11,15,20,0.75); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.2px; }
+    .logo-badge { width: 34px; height: 34px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-radius: 10px; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(58,163,255,0.25); }
+    .logo-badge svg { width: 18px; height: 18px; fill: white; }
+    .nav-links { display: flex; gap: 18px; align-items: center; }
+    .nav-links a { padding: 8px 12px; border-radius: 10px; color: var(--text); }
+    .nav-links a:hover { background: rgba(255,255,255,0.06); text-decoration: none; }
+    .cta { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white !important; border: 0; padding: 10px 14px; border-radius: 12px; box-shadow: 0 8px 22px rgba(58,163,255,0.26); font-weight: 600; }
+
+    /* Hero */
+    .hero { padding: 64px 0 32px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center; }
+    .hero h1 { font-size: clamp(28px, 4.2vw, 54px); line-height: 1.07; margin: 0 0 12px; }
+    .sub { color: var(--muted); font-size: clamp(14px, 2.2vw, 18px); margin-bottom: 22px; }
+    .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 26px; }
+    .badge { background: rgba(58,163,255,0.1); color: #cfe7ff; border: 1px solid rgba(58,163,255,0.25); padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .2px; }
+    .hero-card { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 18px; display: grid; gap: 12px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .ghost { border: 1px solid rgba(255,255,255,0.16); padding: 10px 14px; border-radius: 12px; color: var(--text); background: transparent; }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    .section-title { font-size: clamp(20px, 2.8vw, 30px); margin: 0 0 18px; }
+    .muted { color: var(--muted); }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 1fr; gap: 16px; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+    .skill { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 14px; }
+    .skill h4 { margin: 0 0 8px; font-size: 15px; }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); padding: 6px 10px; border-radius: 999px; font-size: 12px; }
+
+    /* Projects */
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 18px; overflow: hidden; display: grid; }
+    .card img { width: 100%; height: 180px; object-fit: cover; background: #0b1117; }
+    .card .p { padding: 14px; }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.16); }
+    .btn:hover { background: rgba(255,255,255,0.06); text-decoration: none; }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px; }
+    .contact-card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 18px; padding: 16px; }
+    .list { display: grid; gap: 10px; }
+    .list a { display: inline-flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+    .list a:hover { background: rgba(255,255,255,0.06); text-decoration: none; }
+
+    /* Footer */
+    footer { padding: 28px 0 48px; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.06); }
+
+    /* Mobile */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: repeat(2,1fr); }
+      .skills-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img" aria-label="MA"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5zm0 2.2L5 7.2v9.6l7 3.9 7-3.9V7.2l-7-3z"/></svg>
+        </div>
+        <span>Mahmoud Abo Elnaga</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="container hero" id="top">
+    <div>
+      <div class="badge-row">
+        <span class="badge">Data Scientist</span>
+        <span class="badge">Egypt</span>
+        <span class="badge">Open to Opportunities</span>
+      </div>
+      <h1>Hi, I’m <span style="background: linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color: transparent;">Mahmoud</span> — I turn data into decisions.</h1>
+      <p class="sub">I analyze real‑world datasets end‑to‑end: cleaning, exploration, modeling, and clear storytelling with visuals. Check out my work and feel free to connect.</p>
+      <div class="hero-actions">
+        <a class="cta" href="#projects">See Projects</a>
+        <a class="ghost" href="https://github.com/Mahmoud-Abo-Elnaga484" target="_blank" rel="noopener">GitHub Profile</a>
+        <a class="ghost" href="https://www.linkedin.com/in/mahmoud-abo-elnaga-766614305" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="hero-card">
+        <strong>Highlights</strong>
+        <div class="muted">Completed ALX professional foundations and Data Analytics track, IBM Data Science (DEBI), and multiple hands‑on courses in Python, pandas, and data visualization (DataCamp). Experienced with exploratory analysis, model building, and communicating insights.</div>
+      </div>
+    </div>
+    <div class="hero-card" aria-label="Quick Stats">
+      <div style="display:grid; grid-template-columns: repeat(2,1fr); gap: 8px;">
+        <div class="skill"><h4>Languages</h4><div class="chip-row"><span class="chip">Python</span><span class="chip">SQL</span></div></div>
+        <div class="skill"><h4>Libraries</h4><div class="chip-row"><span class="chip">pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">scikit‑learn</span></div></div>
+        <div class="skill"><h4>Data</h4><div class="chip-row"><span class="chip">EDA</span><span class="chip">Cleaning</span><span class="chip">Feature Eng.</span></div></div>
+        <div class="skill"><h4>Workflow</h4><div class="chip-row"><span class="chip">Jupyter</span><span class="chip">Git/GitHub</span><span class="chip">Excel</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container about">
+      <h2 class="section-title">About Me</h2>
+      <p class="muted" style="font-size: 1.05rem; line-height: 1.7;">
+        I’m <strong>Mahmoud Ashraf Abo Elnaga</strong>, a data scientist from Egypt. I focus on building reliable, reproducible workflows that transform messy data into clear insights. My background includes completing the ALX professional foundations and Data Analytics track, acceptance into the <em>IBM Data Science program</em> under the <em>Digital Egypt Builders Initiative (DEBI)</em>, and a series of practical courses in Python, pandas, joining/cleaning data, and Matplotlib. I enjoy exploring datasets, evaluating models thoughtfully, and communicating results with crisp visuals and concise narratives.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill">
+          <h4>Programming & Wrangling</h4>
+          <div class="chip-row">
+            <span class="chip">Python</span>
+            <span class="chip">pandas</span>
+            <span class="chip">NumPy</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Jupyter</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h4>Visualization</h4>
+          <div class="chip-row">
+            <span class="chip">Matplotlib</span>
+            <span class="chip">Seaborn</span>
+            <span class="chip">Exploratory Charts</span>
+            <span class="chip">Storytelling</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h4>Machine Learning</h4>
+          <div class="chip-row">
+            <span class="chip">Regression</span>
+            <span class="chip">Classification</span>
+            <span class="chip">Model Tuning</span>
+            <span class="chip">Evaluation Metrics</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h4>Workflow & Tools</h4>
+          <div class="chip-row">
+            <span class="chip">Git & GitHub</span>
+            <span class="chip">Data Cleaning</span>
+            <span class="chip">Feature Engineering</span>
+            <span class="chip">Excel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="card">
+          <img alt="Laptop Analysis cover" src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1600&auto=format&fit=crop" />
+          <div class="p">
+            <h3>Laptop Data Analysis</h3>
+            <p class="muted">Exploratory data analysis on laptop specs and pricing to reveal trends and help buyers identify value. Includes cleaning, feature engineering, visualization, and insights.</p>
+            <div class="meta">
+              <a class="btn" href="https://github.com/Mahmoud-Abo-Elnaga484/Laptop_analysis" target="_blank" rel="noopener" title="GitHub Repository">
+                <!-- GitHub icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.3c0 5.24 3.41 9.68 8.15 11.26.6.1.82-.27.82-.6v-2.1c-3.32.74-4.02-1.6-4.02-1.6-.55-1.43-1.35-1.81-1.35-1.81-1.1-.77.08-.76.08-.76 1.22.09 1.86 1.28 1.86 1.28 1.08 1.9 2.83 1.35 3.52 1.03.11-.8.42-1.35.76-1.66-2.65-.31-5.44-1.37-5.44-6.08 0-1.34.47-2.44 1.25-3.3-.13-.31-.54-1.57.12-3.27 0 0 1.02-.33 3.35 1.26a11.53 11.53 0 0 1 6.1 0c2.33-1.6 3.35-1.26 3.35-1.26.66 1.7.25 2.96.12 3.27.78.86 1.25 1.96 1.25 3.3 0 4.73-2.8 5.76-5.46 6.07.43.37.81 1.1.81 2.24v3.33c0 .33.22.72.83.6A11.5 11.5 0 0 0 23.5 12.3 11.5 11.5 0 0 0 12 .5Z"/></svg>
+                <span>Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- Placeholder cards: add more later -->
+        <article class="card">
+          <img alt="EDA visuals" src="https://images.unsplash.com/photo-1551281044-8b59a1b4dd89?q=80&w=1600&auto=format&fit=crop" />
+          <div class="p">
+            <h3>Project Two (Coming Soon)</h3>
+            <p class="muted">Add another project here: dataset, objective, methods, and results. Link to GitHub or a live notebook.</p>
+            <div class="meta">
+              <span class="chip">EDA</span><span class="chip">Visualization</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img alt="ML model" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop" />
+          <div class="p">
+            <h3>Project Three (Coming Soon)</h3>
+            <p class="muted">Summarize an ML problem you solved (regression/classification), key features, and evaluation metrics.</p>
+            <div class="meta">
+              <span class="chip">Modeling</span><span class="chip">scikit‑learn</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p class="muted">Want to collaborate or discuss an opportunity? Reach out anytime.</p>
+          <div class="list">
+            <a href="mailto:mahmoudaboelnaga46@gmail.com" title="Email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
+              <span>mahmoudaboelnaga46@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/mahmoud-abo-elnaga-766614305" target="_blank" rel="noopener" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 8.98h3.96V21H3V8.98Zm7.49 0H14.4v1.65h.05c.45-.85 1.56-1.75 3.2-1.75 3.43 0 4.07 2.25 4.07 5.18V21h-3.96v-4.54c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39V21h-3.96V8.98Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/Mahmoud-Abo-Elnaga484" target="_blank" rel="noopener" title="GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.3c0 5.24 3.41 9.68 8.15 11.26.6.1.82-.27.82-.6v-2.1c-3.32.74-4.02-1.6-4.02-1.6-.55-1.43-1.35-1.81-1.35-1.81-1.1-.77.08-.76.08-.76 1.22.09 1.86 1.28 1.86 1.28 1.08 1.9 2.83 1.35 3.52 1.03.11-.8.42-1.35.76-1.66-2.65-.31-5.44-1.37-5.44-6.08 0-1.34.47-2.44 1.25-3.3-.13-.31-.54-1.57.12-3.27 0 0 1.02-.33 3.35 1.26a11.53 11.53 0 0 1 6.1 0c2.33-1.6 3.35-1.26 3.35-1.26.66 1.7.25 2.96.12 3.27.78.86 1.25 1.96 1.25 3.3 0 4.73-2.8 5.76-5.46 6.07.43.37.81 1.1.81 2.24v3.33c0 .33.22.72.83.6A11.5 11.5 0 0 0 23.5 12.3 11.5 11.5 0 0 0 12 .5Z"/></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <strong>Availability</strong>
+          <p class="muted">Freelance and full‑time roles. Remote‑friendly. Let’s talk about how I can help your team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap: 12px; flex-wrap: wrap;">
+        <span>© <span id="year"></span> Mahmoud Ashraf Abo Elnaga</span>
+        <a href="#top" class="btn" title="Back to top">↑ Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
